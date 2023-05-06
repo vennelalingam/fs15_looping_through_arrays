@@ -1,4 +1,4 @@
-# Looping through Objects
+# Looping through Arrays
 
 In this repository, you will practice looping through arrays.
 
