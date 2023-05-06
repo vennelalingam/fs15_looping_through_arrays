@@ -288,7 +288,7 @@ allAddress array.
 
 // for (const value of addressList){
 //     // console.log(value);
-//     let tempAddress = [];
+//     let tempAddress = []; 
 //     for(let key in value){
 //         let allValues = value[key];
 //         // console.log(allValues)
@@ -299,7 +299,23 @@ allAddress array.
 // }
 // console.log(allAddress)
 
-//********* solution 1 without nested looping  *******/
+//***************** alternate solution   ******/
+
+// for(let value of addressList){
+//     let tempAdress = "";
+//     for(let key in value){
+//         let result = value[key];
+//         // console.log(result)
+//         tempAdress += result + " ";
+//     }
+//     // removing space using slice   
+//     tempAdress = tempAdress.slice(0, tempAdress.length-1);
+//     console.log(tempAdress);
+//     allAddress.push(tempAdress)
+// }
+// console.log(allAddress);
+
+//********* solution 1: without nested looping*******/
 
 // for(let i=0; i<addressList.length; i++) {
 //     let row = addressList[i]
@@ -310,7 +326,7 @@ allAddress array.
 // console.log(allAddress)
 
 
-//*************  sol 2 without nested looping  **********/
+//*************  sol 2: without nested looping  **********/
 
 // for(let i=0; i<addressList.length; i++){
 //     let row = addressList[i];
@@ -331,4 +347,72 @@ allAddress array.
 
 /********************************** */
 
-    
+/*-------------------------------------
+ 10)
+ Create a to do list for each day of the week.
+
+ Your result should be an array of strings that looks
+ like this:
+
+ ["Sunday's chores are: nothing.", "Monday's chores are:
+ tidying, vacuuming, dishes.", "Tuesday's chores are: nothing.",
+etc..etc..]
+
+Hint: To accomplish this, you will need to combine a lot of the
+things you've learned from previous activities. Go back and look
+at them if you need help!. 
+ ------------------------------------*/
+ let daysOfTheWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+ ];
+
+ let chores = {
+    monday: ["tidying", "vacuuming", "dishes"],
+    wednesday: ["laundry", "bills"],
+    friday:["dusting", "lawnCare"],
+ };
+
+ const toDoList = [];
+
+ for(let i=0; i<daysOfTheWeek.length; i++){
+    let days = daysOfTheWeek[i];
+    let lowerCaseDays = days.toLowerCase();
+    // console.log(lowerCaseDays)
+  // sunday
+  // monday
+  // wednesday
+  // thursday
+  // friday
+  // saturday
+
+     // matching chores obj with the strings extracted from 
+     // daysOfTheWeek Array
+
+    //  console.log(chores[lowerCaseDays]);
+
+// undefined // no chores matching on sunday..
+// (3) ['tidying', 'vacuuming', 'dishes']
+// undefined
+// (2) ['laundry', 'bills']
+// undefined
+// (2) ['dusting', 'lawnCare']
+// undefined
+
+// if there are chores for that particular day grab that info
+// and push them to toDoList in a string
+
+let result = chores[lowerCaseDays] 
+? chores[lowerCaseDays].join(", ")
+: "nothing";
+    toDoList.push(`${days}'s chores are: ${result}`);
+}
+
+console.log(toDoList) // ['monday', 'wednesday', 'friday']
+
+
